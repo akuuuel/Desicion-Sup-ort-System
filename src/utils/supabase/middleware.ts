@@ -24,14 +24,10 @@ export async function updateSession(request: NextRequest) {
           )
         },
       },
-      global: {
-        fetch: (url, options) => fetch(url, { ...options, cache: 'no-store' }),
-      },
     }
   )
 
   try {
-    // Kita hanya mencoba memperbarui sesi jika ada, tanpa memaksa redirect jika gagal
     await supabase.auth.getUser()
   } catch {
     // Diamkan jika terjadi error network
