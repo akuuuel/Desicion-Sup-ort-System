@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 import {
   Sidebar,
   SidebarContent,
@@ -74,7 +73,7 @@ const data = {
   ],
 };
 
-import { LogOut, User } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { logout } from "@/app/login/actions";
 import { SidebarFooter } from "@/components/ui/sidebar";
 

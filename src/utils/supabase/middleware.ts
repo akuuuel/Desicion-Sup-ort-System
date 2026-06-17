@@ -15,7 +15,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value))
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({
             request,
           })
@@ -33,7 +33,7 @@ export async function updateSession(request: NextRequest) {
   try {
     // Kita hanya mencoba memperbarui sesi jika ada, tanpa memaksa redirect jika gagal
     await supabase.auth.getUser()
-  } catch (e) {
+  } catch {
     // Diamkan jika terjadi error network
   }
 
